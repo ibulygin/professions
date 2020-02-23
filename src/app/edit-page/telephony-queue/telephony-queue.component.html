@@ -1,0 +1,21 @@
+<div class='edit-skills__telephony-queue telephony-queue'>
+    <h2 class='telephony-queue__title'>Очереди телефонии</h2>
+    <div class='telephony-queue__input-wrapper'> 
+        <app-ui-input
+            *ngFor='let queue of queues'
+            class='telephony-queue__input'
+            [placeholder]='queue'>
+        </app-ui-input>
+        <div 
+            class='telephony-queue__delete'
+            (click)='deleteTelephoneQueue()'>
+                <img src="assets/img/delete.svg" alt="">
+        </div>
+    </div>
+    <app-ui-button 
+        class='telephony-queue__button'
+        buttonStyle='button_cancel'
+        (click)='addTelephoneQueue()'>
+        Добавить очередь телефонии
+    </app-ui-button>
+</div>

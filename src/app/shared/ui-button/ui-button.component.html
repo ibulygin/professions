@@ -1,0 +1,8 @@
+<button [ngClass]='{
+    button_cancel: isCancelStyle,
+    button_confirmation: isConfirmationStyle,
+    button_delete: isDeleteStyle,
+    button: true
+    }'
+    (click)='getStyle()'
+><ng-content></ng-content></button>

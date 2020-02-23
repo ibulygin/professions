@@ -1,0 +1,35 @@
+@import '../vars/colors.less';
+@import '../vars/dimensions.less';
+
+.page-header {
+    background-color: @header-background;
+    margin-left: @sidebar-width;
+    padding: 0 @container-padding;
+    height: 44px;
+
+    &__wrapper {
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        width: @container-max-width;
+        margin: auto;
+        align-items: center;
+
+        @media (max-width: @browser-min-width) {
+            width: @container-min-width;
+        }
+    }
+
+    &__logo {
+        display: block;
+        cursor: pointer;
+    }
+
+    &__log-off {
+        text-decoration: none;
+        color: @header-text;
+        font-size: 11px;
+        letter-spacing: 0.9px;
+        text-transform: uppercase;
+    }
+}
