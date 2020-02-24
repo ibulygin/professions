@@ -6,10 +6,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./skill.component.less']
 })
 export class SkillComponent implements OnInit {
-  @Input() name;
-  @Input() description;
-  @Input() src;
-  @Input() id; 
+  @Input() name: string;
+  @Input() description: string;
+  @Input() src: string;
+  @Input() id: string; 
 
   @Output() onClick = new EventEmitter();
 

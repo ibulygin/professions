@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { SkillsPageModule } from './skills-page/skills-page.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
-import { EditPageModule } from './edit-page/edit-page.module';
+// import { EditPageModule } from './edit-page/edit-page.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +16,7 @@ import { EditPageModule } from './edit-page/edit-page.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    SkillsPageModule,
-    EditPageModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

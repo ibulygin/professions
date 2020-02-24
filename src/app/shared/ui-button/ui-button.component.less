@@ -2,33 +2,33 @@
 @import '../../vars/colors.less';
 
 .button {
-    outline: none;
-    border: none;
-    height: @input-heigth;
-    border-radius: @input-border-radius;
-    padding: 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
+  outline: none;
+  border: none;
+  height: @input-heigth;
+  border-radius: @input-border-radius;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: inherit;
+
+  &_cancel {
+    background: @button-cancel-background;
+    border: 1px solid @button-cancel-border-color;
+    color: @button-cancel-font-color;
+  }
+
+  &_confirmation {
     align-items: center;
-    cursor: pointer;
-    width: inherit;
+    text-align: center;
+    background: @button-save-background;
+  }
 
-    &_cancel {
-        background: @button-cancel-background;
-        border: 1px solid @button-cancel-border-color;
-        color: @button-cancel-font-color;
-    }
-
-    &_confirmation {
-        align-items: center;
-        text-align: center;
-        background: @button-save-background;
-    }
-
-    &_delete {
-        background: @button-delete-background;
-        border: 1px solid @button-delete-border-color;
-        color: @button-delete-font-color;
-    }
+  &_delete {
+    background: @button-delete-background;
+    border: 1px solid @button-delete-border-color;
+    color: @button-delete-font-color;
+  }
 }

@@ -5,9 +5,8 @@ import { SkillComponent } from './skill/skill.component';
 import { AboutComponent } from './about/about.component';
 import { UiKitModule } from '../shared/ui-kit.module';
 import { SkillsListComponent } from './skills-list/skills-list.component';
-import { TrainComponent } from './train/train.component';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from '../app-routing.module';
+
+import { SkillsPageRoutingModule } from './skills-page-routing.module';
 
 
 
@@ -16,13 +15,12 @@ import { AppRoutingModule } from '../app-routing.module';
     SkillsPageComponent, 
     SkillComponent, 
     AboutComponent, 
-    SkillsListComponent, 
-    TrainComponent
+    SkillsListComponent
   ],
   imports: [
     CommonModule,
     UiKitModule,
-    AppRoutingModule
+    SkillsPageRoutingModule
   ],
   exports:[SkillsPageComponent]
 })

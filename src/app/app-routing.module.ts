@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SkillsPageComponent } from './skills-page/skills-page.component';
-import { SkillComponent } from './skills-page/skill/skill.component';
-import { AboutComponent } from './skills-page/about/about.component';
-import { TrainComponent } from './skills-page/train/train.component';
-import { EditPageComponent } from './edit-page/edit-page/edit-page.component';
-
 
 const routes: Routes = [
-  { path: '', component: SkillsPageComponent},
-  { path: 'edit/:id', component: EditPageComponent}
+  { 
+    path: '', 
+    loadChildren: () => import('./skills-page/skills-page.module').then((m) => m.SkillsPageModule)
+  },
+  { 
+    path: 'edit/:id', 
+    loadChildren: () => import('./edit-page/edit-page.module').then((m) => m.EditPageModule)
+  }
 ];
 
 @NgModule({

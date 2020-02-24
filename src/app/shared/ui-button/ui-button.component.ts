@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input
+} from '@angular/core';
 
 @Component({
   selector: 'app-ui-button',
@@ -6,13 +10,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./ui-button.component.less']
 })
 export class UiButtonComponent implements OnInit {
+  private isCancelStyle: boolean = false;
+  private isConfirmationStyle: boolean = false;
+  private isDeleteStyle: boolean = false;
+  
   @Input() buttonStyle: string;
 
-  isCancelStyle: boolean = false;
-  isConfirmationStyle:boolean = false;
-  isDeleteStyle:boolean = false;
-
-  defineButtonStyle(){
+  defineButtonStyle() {
     switch (this.buttonStyle) {
       case 'button_cancel':
         this.isCancelStyle = true;
@@ -25,14 +29,12 @@ export class UiButtonComponent implements OnInit {
         break;
     }
   }
-    
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit() {
     this.defineButtonStyle();
   }
-
-  
 
   getStyle() {
     console.log(this.buttonStyle)

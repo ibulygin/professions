@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SkillsListComponent implements OnInit {
   @Input() skills;
+
   activeSkillId: string;
+  
   constructor() { }
 
   ngOnInit() {

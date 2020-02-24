@@ -9,7 +9,10 @@
         <div 
             class='telephony-queue__delete'
             (click)='deleteTelephoneQueue()'>
-                <img src="assets/img/delete.svg" alt="">
+                <img 
+                    src='assets/img/delete.svg' 
+                    alt=''
+                    [ngClass]='{visible: isVisible}'>
         </div>
     </div>
     <app-ui-button 

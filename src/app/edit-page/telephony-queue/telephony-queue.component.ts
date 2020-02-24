@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-telephony-queue',
@@ -6,20 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./telephony-queue.component.less']
 })
 export class TelephonyQueueComponent implements OnInit {
-  queues = ['Очередь для тебя и твлей мамы'];
+  private isVisible: boolean = true;
 
-  constructor() { }
+  queues = ['Очередь для тебя и твоей мамы'];
 
-  ngOnInit() {
-  }
-  
+  constructor() {}
+
+  ngOnInit() {}
+
   addTelephoneQueue(): void {
     this.queues.push('');
+    this.isVisible = false;
   }
 
-  deleteTelephoneQueue(){
-    if(this.queues.length > 1) {
+  deleteTelephoneQueue() {
+    if (this.queues.length > 1) {
       this.queues.pop();
-    }  
+    }
+    if (this.queues.length === 1) {
+      this.isVisible = true;
+    }
   }
 }

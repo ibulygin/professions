@@ -5,6 +5,7 @@ import { UiKitModule } from '../shared/ui-kit.module';
 import { SkillsTypeComponent } from './skills-type/skills-type.component';
 import { QueueGroupsComponent } from './queue-groups/queue-groups.component';
 import { TelephonyQueueComponent } from './telephony-queue/telephony-queue.component';
+import { EditPageModuleRoutingModule } from './edit-page-routing.module';
 
 
 
@@ -17,7 +18,8 @@ import { TelephonyQueueComponent } from './telephony-queue/telephony-queue.compo
   ],
   imports: [
     CommonModule,
-    UiKitModule
+    UiKitModule,
+    EditPageModuleRoutingModule
   ],
   exports: [
     EditPageComponent, 

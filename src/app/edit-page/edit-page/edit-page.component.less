@@ -2,70 +2,70 @@
 @import '../../vars/dimensions.less';
 
 .page-content {
-    margin-left: @sidebar-width;
-    padding: 56px @container-padding 74px @container-padding;
+  margin-left: @sidebar-width;
+  padding: 56px @container-padding 74px @container-padding;
 
-    &__wrapper {
-        width: @container-max-width;
-        margin: auto;
+  &__wrapper {
+    width: @container-max-width;
+    margin: auto;
 
-        @media (max-width: @browser-min-width) {
-            width: @container-min-width;
-        }
+    @media (max-width: @browser-min-width) {
+      width: @container-min-width;
     }
+  }
 
-    &__wrapper_edit {
-        width: 672px;
-        margin: auto;
-    }
+  &__wrapper_edit {
+    width: 672px;
+    margin: auto;
+  }
 }
 
 :host /deep/ .edit-skills {
-    display: flex;
-    flex-direction: column;
-    width: 672px;
+  display: flex;
+  flex-direction: column;
+  width: 672px;
 
-    &__title {
-        margin: 0;
-    }
+  &__title {
+    margin: 0;
+  }
 
-    &__input {
-        margin: 32px 0 0 0;
-    }
+  &__input {
+    margin: 32px 0 0 0;
+  }
 
-    &__type {
-        margin-top: @edit-elements-margin-top;
-    }
+  &__type {
+    margin-top: @edit-elements-margin-top;
+  }
 
-    &__telephony-queue {
-        margin-top: @edit-elements-margin-top;
-    }
+  &__telephony-queue {
+    margin-top: @edit-elements-margin-top;
+  }
 
-    &__queue-groups {
-        margin-top: @edit-elements-margin-top;
-    }
+  &__queue-groups {
+    margin-top: @edit-elements-margin-top;
+  }
 
-    &__save {
-        margin-top: 56px;
-    }
+  &__save {
+    margin-top: 56px;
+  }
 }
 
 :host /deep/ .skills-save {
-    display: flex;
-    font-size: @font-size;
+  display: flex;
+  font-size: @font-size;
 
-    &__save {
-        width: 233px;
-        margin-right: 20px;
-    }
+  &__save {
+    width: 233px;
+    margin-right: 20px;
+  }
 
-    &__cancel {
-        width: 131px;
-        margin-right: 20px;
-    }
+  &__cancel {
+    width: 131px;
+    margin-right: 20px;
+  }
 
-    &__delete {
-        width: 131px;
-        margin-right: 20px;
-    }
+  &__delete {
+    width: 131px;
+    margin-right: 20px;
+  }
 }

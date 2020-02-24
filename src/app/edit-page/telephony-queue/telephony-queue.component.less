@@ -2,52 +2,56 @@
 @import '../../vars/dimensions.less';
 
 .telephony-queue {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    &__input {
-        margin-top: @vertical-indent;
-    }
+  &__input {
+    margin-top: @vertical-indent;
+  }
 
-    &__input-wrapper {
-        box-sizing: border-box;
-        position: relative;
-    }
+  &__input-wrapper {
+    box-sizing: border-box;
+    position: relative;
+  }
 
-    &__delete {
-        height: @input-heigth;
-        position: absolute;
-        right: -72px;
-        bottom: 0;
-        cursor: pointer;
-    }
+  &__delete {
+    height: @input-heigth;
+    position: absolute;
+    right: -72px;
+    bottom: 0;
+    cursor: pointer;
+  }
 
-    &__button {
-        margin-top: @vertical-indent;
-        width: 100%;
-    }
+  &__button {
+    margin-top: @vertical-indent;
+    width: 100%;
+  }
 
-    &__title {
-        margin: 0;
-    }
+  &__title {
+    margin: 0;
+  }
 }
 
 .skills-save {
-    display: flex;
-    font-size: @font-size;
+  display: flex;
+  font-size: @font-size;
 
-    &__save {
-        flex-basis: 233px;
-        margin-right: 20px;
-    }
+  &__save {
+    flex-basis: 233px;
+    margin-right: 20px;
+  }
 
-    &__cancel {
-        flex-basis: 131px;
-        margin-right: 20px;
-    }
+  &__cancel {
+    flex-basis: 131px;
+    margin-right: 20px;
+  }
 
-    &__delete {
-        flex-basis: 131px;
-        margin-right: 20px;
-    }
+  &__delete {
+    flex-basis: 131px;
+    margin-right: 20px;
+  }
+}
+
+.visible {
+  display: none;
 }
