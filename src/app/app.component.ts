@@ -28,10 +28,15 @@ export class AppComponent {
   getData(){
     console.log('click')
     return this.http.get(`${url}/skills.json`);
+    //?orderBy="id"&equalTo="4"&limitToFirst=1
   }
 
   setData() {
     return this.http.post(`${url}/skills.json`, req)
+  }
+
+  delleteData() {
+    return this.http.delete(`${url}/skills/-M16YbKFi9zH8IV39YZT.json`)
   }
 
   loadData() {
@@ -42,4 +47,7 @@ export class AppComponent {
     this.setData().subscribe(data => console.log(data));
   }
   
+  deleteMyData() {
+    this.delleteData().subscribe(data => console.log(data));
+  }
 }
