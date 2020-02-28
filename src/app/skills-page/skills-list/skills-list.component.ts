@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SkillIdService } from '../../services/skillId/skillId.service';
 
 @Component({
   selector: 'app-skills-list',
@@ -10,13 +11,14 @@ export class SkillsListComponent implements OnInit {
 
   activeSkillId: string;
   
-  constructor() { }
+  constructor(private skillIdService: SkillIdService) { }
 
   ngOnInit() {
   }
   
 
   getValue(id : string) {
+    this.skillIdService.set(id);
     this.activeSkillId = id;
   }
 }

@@ -6,6 +6,7 @@ import { SkillsTypeComponent } from './skills-type/skills-type.component';
 import { QueueGroupsComponent } from './queue-groups/queue-groups.component';
 import { TelephonyQueueComponent } from './telephony-queue/telephony-queue.component';
 import { EditPageModuleRoutingModule } from './edit-page-routing.module';
+import { EditSkillService } from '../services/editSkil/editSkill.service';
 
 
 
@@ -19,7 +20,10 @@ import { EditPageModuleRoutingModule } from './edit-page-routing.module';
   imports: [
     CommonModule,
     UiKitModule,
-    EditPageModuleRoutingModule
+    EditPageModuleRoutingModule,
+  ],
+  providers: [
+    EditSkillService
   ],
   exports: [
     EditPageComponent, 

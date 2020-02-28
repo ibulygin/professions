@@ -2,6 +2,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
+import { SkillsService } from './services/skills/skills.service';
 
 
 const url = 'https://professions-f6d7d.firebaseio.com';
@@ -23,31 +24,35 @@ const req =
 })
 export class AppComponent {
   title = 'professions';
-  constructor(private http: HttpClient) {}
+  constructor(private skillsService: SkillsService) {}
 
-  getData(){
-    console.log('click')
-    return this.http.get(`${url}/skills.json`);
-    //?orderBy="id"&equalTo="4"&limitToFirst=1
+  get() {
+    this.skillsService.getSkills().subscribe((data) => console.log(data))
   }
 
-  setData() {
-    return this.http.post(`${url}/skills.json`, req)
-  }
+  // getData(){
+  //   console.log('click')
+  //   return this.http.get(`${url}/skills.json`);
+  //   //?orderBy="id"&equalTo="4"&limitToFirst=1
+  // }
 
-  delleteData() {
-    return this.http.delete(`${url}/skills/-M16YbKFi9zH8IV39YZT.json`)
-  }
+  // setData() {
+  //   return this.http.post(`${url}/skills.json`, req)
+  // }
 
-  loadData() {
-    this.getData().subscribe((data) => console.log(data));
-  }
+  // delleteData() {
+  //   return this.http.delete(`${url}/skills/-M16YbKFi9zH8IV39YZT.json`)
+  // }
 
-  setMyData() {
-    this.setData().subscribe(data => console.log(data));
-  }
+  // loadData() {
+  //   this.getData().subscribe((data) => console.log(data));
+  // }
+
+  // setMyData() {
+  //   this.setData().subscribe(data => console.log(data));
+  // }
   
-  deleteMyData() {
-    this.delleteData().subscribe(data => console.log(data));
-  }
+  // deleteMyData() {
+  //   this.delleteData().subscribe(data => console.log(data));
+  // }
 }

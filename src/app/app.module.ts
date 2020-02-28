@@ -8,6 +8,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { HttpService } from './services/http/http.service';
+import { SkillsService } from './services/skills/skills.service';
+import { SkillIdService } from './services/skillId/skillId.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5QxkjS33vWL_910lHtZn72qfDHPatCIE",
@@ -33,7 +36,11 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [
+    HttpService, 
+    SkillsService,
+    SkillIdService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
