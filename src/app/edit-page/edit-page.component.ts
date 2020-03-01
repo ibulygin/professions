@@ -6,7 +6,8 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-edit-page',
   templateUrl: './edit-page.component.html',
-  styleUrls: ['./edit-page.component.less']
+  styleUrls: ['./edit-page.component.less'],
+  providers: [SkillIdService]
 })
 export class EditPageComponent implements OnInit {
   skill: any;
@@ -27,7 +28,7 @@ export class EditPageComponent implements OnInit {
 
   get() {
     console.log(this.skill);
-    console.log(this.location.path())
+    console.log(this.skillIdService.get())
   }
 
 }

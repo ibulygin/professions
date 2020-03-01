@@ -11,14 +11,13 @@ export class SkillsListComponent implements OnInit {
 
   activeSkillId: string;
   
-  constructor(private skillIdService: SkillIdService) { }
+  constructor() { }
 
   ngOnInit() {
   }
   
 
   getValue(id : string) {
-    this.skillIdService.set(id);
     this.activeSkillId = id;
   }
 }
