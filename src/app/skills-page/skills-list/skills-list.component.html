@@ -2,10 +2,7 @@
     <app-skill 
         (onClick)='getValue($event)'
         *ngFor='let skill of skills'
-        [name]='skill.name'
-        [description]='skill.description'
-        [src]='skill.src'
-        [id]='skill.id'
+        [skill]='skill'
         routerLink='/edit/{{activeSkillId}}'>
     </app-skill>
 </section>

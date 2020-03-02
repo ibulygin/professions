@@ -14,6 +14,9 @@ export class SkillsPageComponent implements OnInit {
 
   ngOnInit() {
       this.skillsService.getSkills()
-          .subscribe((skills) => this.skills = skills )
+          .subscribe((skills) => this.skills = skills,
+          
+          )
   }
+  get() {}
 }

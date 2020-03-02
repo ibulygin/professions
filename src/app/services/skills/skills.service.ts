@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpService } from '../http/http.service';
 import { error } from 'util';
-import { subscribeOn } from 'rxjs/operators';
+import { subscribeOn, map, filter } from 'rxjs/operators';
 
 const baseUrl = 'https://professions-f6d7d.firebaseio.com'
 
@@ -15,7 +15,12 @@ export class SkillsService {
   id: any;
 
   getSkills(): Observable<any> {
-      return this.httpService.get(`${baseUrl}/skills.json`)
+      return this.httpService.get(`${baseUrl}/skills.json`).pipe(
+        map((skills) => {
+            return skills.filter(skill => skill !== null)
+        })
+              
+    )
   }
 
   getSkillById(id: string): Observable<any>  {
