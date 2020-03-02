@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EditSkillService } from '../services/editSkil/editSkill.service';
 import { SkillIdService } from '../services/skillId/skillId.service';
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-page',
@@ -16,6 +17,7 @@ export class EditPageComponent implements OnInit {
   constructor(
     private editSkillService: EditSkillService,
     private skillIdService: SkillIdService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -32,6 +34,13 @@ export class EditPageComponent implements OnInit {
   get() {
     console.log(this.skill);
     console.log(this.automateId)
+  }
+
+  remove(){
+    this.editSkillService.removeSkill(this.automateId).subscribe(()=>{
+      console.log("successfully");
+      this.router.navigateByUrl('')
+    });
   }
 
 }

@@ -26,12 +26,14 @@
                 </app-ui-button>
                 <app-ui-button
                     class='skills-save__cancel'
-                    buttonStyle='button_cancel'>
+                    buttonStyle='button_cancel'
+                    routerLink=''>
                     Отмена
                 </app-ui-button>
                 <app-ui-button
                     class='skills-save__delete'
-                    buttonStyle='button_delete'>
+                    buttonStyle='button_delete'
+                    (click)='remove()'>
                     Удалить
                 </app-ui-button>
             </div>
