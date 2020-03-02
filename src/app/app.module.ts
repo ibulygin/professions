@@ -9,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HttpService } from './services/http/http.service';
 import { SkillsService } from './services/skills/skills.service';
+import { PopUpModule } from './pop-up/pop-up.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5QxkjS33vWL_910lHtZn72qfDHPatCIE",
@@ -28,6 +29,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    PopUpModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireDatabaseModule,
