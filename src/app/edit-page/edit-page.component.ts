@@ -12,29 +12,21 @@ import {Location} from '@angular/common';
 export class EditPageComponent implements OnInit {
   skill: any;
   automateId: any;
-  name = 'eeeeee'
 
   constructor(
     private editSkillService: EditSkillService,
     private skillIdService: SkillIdService,
-    ) { 
-      this.editSkillService.getSkillById(this.skillIdService.get())
-      .subscribe(
-        (skill) => {
-            this.automateId = Object.keys(skill).join();
-            this.skill = skill[this.automateId];
-        }
-        );
-    }
+    ) { }
 
   ngOnInit() {
-    // this.editSkillService.getSkillById(this.skillIdService.get())
-    //     .subscribe(
-    //       (skill) => {
-    //           this.automateId = Object.keys(skill).join();
-    //           this.skill = skill[this.automateId];
-    //       }
-    //       );
+    this.editSkillService.getSkillById(this.skillIdService.get())
+        .subscribe(
+          (skill) => {
+              this.automateId = Object.keys(skill).join();
+              this.skill = skill[this.automateId];
+              console.log(this.automateId)
+          }
+          );
   }
 
   get() {

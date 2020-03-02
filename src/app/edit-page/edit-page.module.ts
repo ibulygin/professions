@@ -7,6 +7,7 @@ import { QueueGroupsComponent } from './queue-groups/queue-groups.component';
 import { TelephonyQueueComponent } from './telephony-queue/telephony-queue.component';
 import { EditPageModuleRoutingModule } from './edit-page-routing.module';
 import { EditSkillService } from '../services/editSkil/editSkill.service';
+import { FormsModule }   from '@angular/forms';
 
 
 
@@ -21,6 +22,7 @@ import { EditSkillService } from '../services/editSkil/editSkill.service';
     CommonModule,
     UiKitModule,
     EditPageModuleRoutingModule,
+    FormsModule
   ],
   providers: [
     EditSkillService

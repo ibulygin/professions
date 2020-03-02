@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-skills-type',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skills-type.component.less']
 })
 export class SkillsTypeComponent implements OnInit {
-
+  @Input() type;
   constructor() { }
 
   ngOnInit() {

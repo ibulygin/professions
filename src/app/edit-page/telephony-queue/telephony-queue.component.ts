@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  Input
 } from '@angular/core';
 
 @Component({
@@ -9,9 +10,9 @@ import {
   styleUrls: ['./telephony-queue.component.less']
 })
 export class TelephonyQueueComponent implements OnInit {
-  private isVisible: boolean = true;
+  isVisible: boolean = true;
 
-  queues = ['Очередь для тебя и твоей мамы'];
+  @Input() queues: any[];
 
   constructor() {}
 

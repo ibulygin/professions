@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-queue-groups',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./queue-groups.component.less']
 })
 export class QueueGroupsComponent implements OnInit {
-
+  @Input() value: any;
   constructor() { }
 
   ngOnInit() {
