@@ -1,9 +1,10 @@
 <main class='page-content'>
     <div class='page-content__wrapper'>
-        <section class='edit-skills'>
+        <section class='edit-skills' *ngIf='skill'>
             <h1 class='edit-skills__title' (click)="get()">Редактирование скилла</h1>
             <app-ui-input
-                class='edit-skills__input'>
+                class='edit-skills__input'
+                [placeholder]='skill.name'>
             </app-ui-input>
             <app-skills-type
                 class = 'edit-skills__type'>
