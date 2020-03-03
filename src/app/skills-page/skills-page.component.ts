@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SkillsService } from '../services/skills/skills.service';
 
 @Component({
   selector: 'app-skills-page',
   templateUrl: './skills-page.component.html',
-  styleUrls: ['./skills-page.component.less']
+  styleUrls: ['./skills-page.component.less'],
+  
 })
 export class SkillsPageComponent implements OnInit {
 

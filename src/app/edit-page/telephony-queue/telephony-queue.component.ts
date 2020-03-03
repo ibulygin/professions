@@ -1,13 +1,15 @@
 import {
   Component,
   OnInit,
-  Input
+  Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
   selector: 'app-telephony-queue',
   templateUrl: './telephony-queue.component.html',
-  styleUrls: ['./telephony-queue.component.less']
+  styleUrls: ['./telephony-queue.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TelephonyQueueComponent implements OnInit {
   isVisible: boolean = true;

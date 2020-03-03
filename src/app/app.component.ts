@@ -1,5 +1,5 @@
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { SkillsService } from './services/skills/skills.service';
