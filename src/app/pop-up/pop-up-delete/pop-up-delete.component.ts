@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pop-up-delete.component.html',
   styleUrls: ['./pop-up-delete.component.less']
 })
-export class PopUpDeleteComponent implements OnInit {
-
+export class PopUpDeleteComponent {
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

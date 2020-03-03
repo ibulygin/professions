@@ -7,11 +7,8 @@ import { Subject } from 'rxjs';
   templateUrl: './pop-up-confirmation.component.html',
   styleUrls: ['./pop-up-confirmation.component.less']
 })
-export class PopUpConfirmationComponent implements OnInit {
+export class PopUpConfirmationComponent{
   clear = new Subject<void>();
+  
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

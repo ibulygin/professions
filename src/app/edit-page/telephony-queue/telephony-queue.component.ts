@@ -11,14 +11,12 @@ import {
   styleUrls: ['./telephony-queue.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TelephonyQueueComponent implements OnInit {
+export class TelephonyQueueComponent{
   isVisible: boolean = false;
 
   @Input() queues: any[];
 
   constructor() {}
-
-  ngOnInit() {}
 
   addTelephoneQueue(): void {
     this.queues.push('');

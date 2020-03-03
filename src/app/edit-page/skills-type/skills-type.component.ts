@@ -6,11 +6,8 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
   styleUrls: ['./skills-type.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillsTypeComponent implements OnInit {
+export class SkillsTypeComponent {
   @Input() type;
+  
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

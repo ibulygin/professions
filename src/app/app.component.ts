@@ -24,12 +24,4 @@ const req =
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent { 
-  // popUps: AdItem;
-
-  // constructor( private viewPopUpService: ViewPopUpService){}
-
-  // ngOnInit() {
-  //     this.popUps = this.viewPopUpService.getPopUp();
-  // }
-}
+export class AppComponent { }

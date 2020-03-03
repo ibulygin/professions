@@ -7,16 +7,12 @@ import { SkillIdService } from '../../services/skillId/skillId.service';
   styleUrls: ['./skills-list.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillsListComponent implements OnInit {
+export class SkillsListComponent {
   @Input() skills;
 
   activeSkillId: string;
   
   constructor() { }
-
-  ngOnInit() {
-  }
-  
 
   getValue(id : string) {
     this.activeSkillId = id;

@@ -5,12 +5,8 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './ui-input.component.html',
   styleUrls: ['./ui-input.component.less']
 })
-export class UiInputComponent implements OnInit {
+export class UiInputComponent{
   @Input() placeholder;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './ui-search-input.component.html',
   styleUrls: ['./ui-search-input.component.less']
 })
-export class UiSearchInputComponent implements OnInit {
-
+export class UiSearchInputComponent{
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

@@ -6,11 +6,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
   styleUrls: ['./queue-groups.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class QueueGroupsComponent implements OnInit {
+export class QueueGroupsComponent {
   @Input() value: any;
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
