@@ -26,7 +26,8 @@ export class PopUpConfirmationComponent{
   delete() {
     this.skillsService.removeSkill(this.skillIdService.get()).subscribe(()=>{
       console.log("successfully");
-      this.router.navigateByUrl('')
+      this.router.navigateByUrl('');
+      this.popUp.close();
     });;
   }
 }
