@@ -1,10 +1,12 @@
 @import '../vars/colors.less';
 @import '../vars/dimensions.less';
 
-.page-content {
+:host {
     margin-left: @sidebar-width;
     padding: 56px @container-padding 74px @container-padding;
+}
 
+.page-content {
     &__wrapper {
         width: @container-max-width;
         margin: auto;

@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SkillsService } from '../services/skills/skills.service';
+import { Skill } from '../interfaces/skill';
 
 @Component({
   selector: 'app-skills-page',
@@ -9,7 +10,7 @@ import { SkillsService } from '../services/skills/skills.service';
 })
 export class SkillsPageComponent implements OnInit {
 
-  skills: any[];
+  skills: Skill;
 
   constructor(private skillsService: SkillsService ) { }
 

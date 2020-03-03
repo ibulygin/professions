@@ -12,7 +12,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TelephonyQueueComponent implements OnInit {
-  isVisible: boolean = true;
+  isVisible: boolean = false;
 
   @Input() queues: any[];
 
@@ -32,5 +32,9 @@ export class TelephonyQueueComponent implements OnInit {
     if (this.queues.length === 1) {
       this.isVisible = true;
     }
+  }
+
+  getStyle() {
+    return {visible: this.isVisible};
   }
 }

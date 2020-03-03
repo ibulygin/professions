@@ -2,9 +2,6 @@
 @import '../../vars/dimensions.less';
 
 .queue-groups {
-  display: flex;
-  flex-direction: column;
-
   &__select {
     margin: @indent-from-title 0 0 0;
     height: @input-heigth;
@@ -21,4 +18,9 @@
   &__title {
     margin: 0;
   }
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
 }

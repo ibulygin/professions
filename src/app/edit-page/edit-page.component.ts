@@ -3,7 +3,7 @@ import { EditSkillService } from '../services/editSkil/editSkill.service';
 import { SkillIdService } from '../services/skillId/skillId.service';
 import {Location} from '@angular/common';
 import { Router } from '@angular/router';
-import { PopUpHostComponent } from '../pop-up-host/pop-up-host.component';
+import { Skill } from '../interfaces/skill';
 
 @Component({
   selector: 'app-edit-page',
@@ -12,7 +12,7 @@ import { PopUpHostComponent } from '../pop-up-host/pop-up-host.component';
   providers: [SkillIdService]
 })
 export class EditPageComponent implements OnInit {
-  skill: any;
+  skill: Skill;
   automateId: any;
 
   constructor(

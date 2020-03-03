@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpService } from '../http/http.service';
 import { error } from 'util';
 import { subscribeOn, map, filter } from 'rxjs/operators';
+import { Skill } from '../../interfaces/skill';
 
 const baseUrl = 'https://professions-f6d7d.firebaseio.com'
 
@@ -14,10 +15,10 @@ export class SkillsService {
 
   id: any;
 
-  getSkills(): Observable<any> {
+  getSkills(): Observable<Skill> {
       return this.httpService.get(`${baseUrl}/skills.json`).pipe(
         map((skills) => {
-            return skills.filter(skill => skill !== null)
+            return skills.filter((skill: Skill) => skill !== null)
         })
               
     )

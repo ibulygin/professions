@@ -10,9 +10,9 @@ import {
   styleUrls: ['./ui-button.component.less']
 })
 export class UiButtonComponent implements OnInit {
-  private isCancelStyle: boolean = false;
-  private isConfirmationStyle: boolean = false;
-  private isDeleteStyle: boolean = false;
+  isCancelStyle: boolean = false;
+  isConfirmationStyle: boolean = false;
+  isDeleteStyle: boolean = false;
   
   @Input() buttonStyle: string;
 
@@ -37,6 +37,11 @@ export class UiButtonComponent implements OnInit {
   }
 
   getStyle() {
-    console.log(this.buttonStyle)
+    return {
+      button_cancel: this.isCancelStyle,
+      button_confirmation: this.isConfirmationStyle,
+      button_delete: this.isDeleteStyle,
+      button: true
+    }
   }
 }
