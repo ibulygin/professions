@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { PopUpHostComponent } from 'src/app/pop-up-host/pop-up-host.component';
 
 @Component({
   selector: 'app-skill',
@@ -13,6 +14,7 @@ export class SkillComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // this.popUpHostComponent.load();
   }
 
 }

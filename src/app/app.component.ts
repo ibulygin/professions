@@ -25,11 +25,11 @@ const req =
   styleUrls: ['./app.component.less']
 })
 export class AppComponent { 
-  popUps: AdItem;
+  // popUps: AdItem;
 
-  constructor( private viewPopUpService: ViewPopUpService){}
+  // constructor( private viewPopUpService: ViewPopUpService){}
 
-  ngOnInit() {
-      this.popUps = this.viewPopUpService.getPopUp();
-  }
+  // ngOnInit() {
+  //     this.popUps = this.viewPopUpService.getPopUp();
+  // }
 }

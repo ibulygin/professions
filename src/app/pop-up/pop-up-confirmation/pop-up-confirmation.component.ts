@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'events';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-pop-up-confirmation',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pop-up-confirmation.component.less']
 })
 export class PopUpConfirmationComponent implements OnInit {
-
+  clear = new Subject<void>();
   constructor() { }
 
   ngOnInit() {

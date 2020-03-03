@@ -3,6 +3,7 @@ import { EditSkillService } from '../services/editSkil/editSkill.service';
 import { SkillIdService } from '../services/skillId/skillId.service';
 import {Location} from '@angular/common';
 import { Router } from '@angular/router';
+import { PopUpHostComponent } from '../pop-up-host/pop-up-host.component';
 
 @Component({
   selector: 'app-edit-page',
@@ -17,7 +18,8 @@ export class EditPageComponent implements OnInit {
   constructor(
     private editSkillService: EditSkillService,
     private skillIdService: SkillIdService,
-    private router: Router
+    private router: Router,
+    
     ) { }
 
   ngOnInit() {
