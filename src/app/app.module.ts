@@ -10,6 +10,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HttpService } from './services/http/http.service';
 import { SkillsService } from './services/skills/skills.service';
 import { PopUpModule } from './pop-up/pop-up.module';
+import { PopUpHostComponent } from './pop-up-host/pop-up-host.component';
+import { PopUpConfirmationComponent } from './pop-up/pop-up-confirmation/pop-up-confirmation.component';
+import { AdDirective } from './ad.directive';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5QxkjS33vWL_910lHtZn72qfDHPatCIE",
@@ -25,7 +28,9 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    PopUpHostComponent,
+    AdDirective
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,9 @@ export const firebaseConfig = {
     HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig)
+  ],
+  entryComponents: [ 
+    PopUpConfirmationComponent
   ],
   providers: [
     HttpService, 
