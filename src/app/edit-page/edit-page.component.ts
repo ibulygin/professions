@@ -35,8 +35,6 @@ export class EditPageComponent implements OnInit {
   }
 
   getPopUp() {
-    console.log(this.skill);
-    console.log(this.automateId);
     this.popUp.view(PopUpConfirmationComponent);
   }
 

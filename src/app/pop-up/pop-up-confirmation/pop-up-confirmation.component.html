@@ -3,13 +3,11 @@
         <img src="assets/img/icon-notifications.svg">
         <h1 class='pop-up-confirmation__description'> Вы уверены, что хотите удалить скилл?</h1>
         <div class='pop-up-confirmation__wrapper-button'>
-            <button class='pop-up-confirmation__button-restore button button_cancel'>Восстановить</button>
-            <button class='pop-up-confirmation__button-cancel button button_confirmation'>Удалить</button>
+            <button class='pop-up-confirmation__button-restore button button_cancel' (click)='close()'>Восстановить</button>
+            <button class='pop-up-confirmation__button-cancel button button_confirmation' (click)='delete()' >Удалить</button>
         </div>
         <div class='pop-up-confirmation__close' >
             <img src="assets/img/icon-close.svg" alt="" (click)='close()'>
         </div>
     </div>
 </div>
-
-<div class="d">it works</div>

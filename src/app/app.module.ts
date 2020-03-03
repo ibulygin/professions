@@ -13,6 +13,7 @@ import { PopUpModule } from './pop-up/pop-up.module';
 import { PopUpHostComponent } from './pop-up-host/pop-up-host.component';
 import { PopUpConfirmationComponent } from './pop-up/pop-up-confirmation/pop-up-confirmation.component';
 import { AdDirective } from './ad.directive';
+import { SkillIdService } from './services/skillId/skillId.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5QxkjS33vWL_910lHtZn72qfDHPatCIE",
@@ -45,7 +46,8 @@ export const firebaseConfig = {
   ],
   providers: [
     HttpService, 
-    SkillsService
+    SkillsService,
+    SkillIdService
   ],
   bootstrap: [AppComponent]
 })

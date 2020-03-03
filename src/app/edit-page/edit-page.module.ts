@@ -8,6 +8,7 @@ import { TelephonyQueueComponent } from './telephony-queue/telephony-queue.compo
 import { EditPageModuleRoutingModule } from './edit-page-routing.module';
 import { EditSkillService } from '../services/editSkil/editSkill.service';
 import { FormsModule }   from '@angular/forms';
+import { SkillIdService } from '../services/skillId/skillId.service';
 
 
 
