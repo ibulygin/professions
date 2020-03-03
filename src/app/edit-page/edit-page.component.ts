@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EditSkillService } from '../services/editSkil/editSkill.service';
 import { SkillIdService } from '../services/skillId/skillId.service';
-import {Location} from '@angular/common';
 import { Router } from '@angular/router';
 import { Skill } from '../interfaces/skill';
 

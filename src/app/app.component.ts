@@ -1,11 +1,4 @@
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
-import { SkillsService } from './services/skills/skills.service';
-import { AdItem } from './ad-item';
-import { ViewPopUpService } from './services/viewPopUp/view-pop-up.service';
-
+import { Component } from '@angular/core';
 
 const url = 'https://professions-f6d7d.firebaseio.com';
 const req = 

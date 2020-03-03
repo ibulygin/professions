@@ -1,5 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({

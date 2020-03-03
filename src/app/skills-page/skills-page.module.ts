@@ -5,9 +5,7 @@ import { SkillComponent } from './skill/skill.component';
 import { AboutComponent } from './about/about.component';
 import { UiKitModule } from '../shared/ui-kit.module';
 import { SkillsListComponent } from './skills-list/skills-list.component';
-
 import { SkillsPageRoutingModule } from './skills-page-routing.module';
-import { PopUpHostComponent } from '../pop-up-host/pop-up-host.component';
 
 
 

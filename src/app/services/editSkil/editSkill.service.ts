@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpService } from '../http/http.service';
-import { error } from 'util';
-import { subscribeOn } from 'rxjs/operators';
+
 
 const baseUrl = 'https://professions-f6d7d.firebaseio.com'
 
