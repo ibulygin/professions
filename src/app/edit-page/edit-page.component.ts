@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { EditSkillService } from '../services/editSkil/editSkill.service';
 import { SkillIdService } from '../services/skillId/skillId.service';
 import { Router } from '@angular/router';
 import { Skill } from '../interfaces/skill';
+import { PopUpService } from '../services/popUP/pop-up.service';
+import { PopUpConfirmationComponent } from '../pop-up/pop-up-confirmation/pop-up-confirmation.component';
 
 @Component({
   selector: 'app-edit-page',
@@ -18,7 +20,7 @@ export class EditPageComponent implements OnInit {
     private editSkillService: EditSkillService,
     private skillIdService: SkillIdService,
     private router: Router,
-    
+    private popUp: PopUpService
     ) { }
 
   ngOnInit() {
@@ -34,7 +36,8 @@ export class EditPageComponent implements OnInit {
 
   get() {
     console.log(this.skill);
-    console.log(this.automateId)
+    console.log(this.automateId);
+    this.popUp.view(PopUpConfirmationComponent);
   }
 
   remove(){

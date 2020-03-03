@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver } from '@
 import { AdItem } from '../ad-item';
 import { AdDirective } from '../ad.directive';
 import { ViewPopUpService } from '../services/viewPopUp/view-pop-up.service';
+import { PopUpService } from '../services/popUP/pop-up.service';
 
 
 @Component({
@@ -16,21 +17,23 @@ export class PopUpHostComponent implements OnInit {
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
     private viewPopUpService: ViewPopUpService,
+    private popUp: PopUpService
     ) { }
 
   ngOnInit() {
-    this.popUps = this.viewPopUpService.getPopUp();
+    this.popUp.popUp.subscribe((popUpClass) => this.load(popUpClass) )
+    // this.popUps = this.viewPopUpService.getPopUp();
     // this.load();
   }
 
-  load() {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.popUps.component);
+  load(popUP) {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(popUP);
     const viewContainerRef = this.adHost.viewContainerRef;
 
     viewContainerRef.clear();
 
-    const component = viewContainerRef.createComponent(componentFactory);
-    component.instance.clear.subscribe(()=> this.clear())
+    viewContainerRef.createComponent(componentFactory);
+    // component.instance.clear.subscribe(()=> this.clear())
     
   }
 
