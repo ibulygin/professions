@@ -5,11 +5,16 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class PopUpService {
-  popUp = new Subject();
+  event = new Subject();
+  closes = new Subject <void> ();
   
   constructor() { }
 
   view(pupUpClass) {
-      this.popUp.next(pupUpClass);
+      this.event.next(pupUpClass);
+  }
+
+  close() {
+    this.closes.next();
   }
 }

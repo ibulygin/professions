@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
+import { PopUpService } from 'src/app/services/popUP/pop-up.service';
 
 @Component({
   selector: 'app-pop-up-confirmation',
@@ -7,7 +8,10 @@ import { Subject } from 'rxjs';
   styleUrls: ['./pop-up-confirmation.component.less']
 })
 export class PopUpConfirmationComponent{
-  clear = new Subject<void>();
-  
-  constructor() { }
+
+  constructor(private popUp: PopUpService) { }
+
+  close() {
+    this.popUp.close();
+  }
 }

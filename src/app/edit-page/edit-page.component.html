@@ -4,7 +4,7 @@
             *ngIf='skill'>
         <h1 
             class='edit-skills__title' 
-            (click)="get()">
+            >
             Редактирование скилла
         </h1>
         <app-ui-input 
@@ -37,7 +37,7 @@
           <app-ui-button 
                 class='skills-save__delete' 
                 buttonStyle='button_delete' 
-                (click)='remove()'>
+                (click)='getPopUp()'>
             Удалить
           </app-ui-button>
         </div>

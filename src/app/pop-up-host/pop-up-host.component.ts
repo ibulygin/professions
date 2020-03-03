@@ -21,18 +21,19 @@ export class PopUpHostComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.popUp.popUp.subscribe((popUpClass) => this.load(popUpClass) )
+    this.popUp.event.subscribe((popUpClass) => this.load(popUpClass) )
+    this.popUp.closes.subscribe(() => this.adHost.viewContainerRef.clear())
     // this.popUps = this.viewPopUpService.getPopUp();
     // this.load();
   }
 
   load(popUP) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(popUP);
-    const viewContainerRef = this.adHost.viewContainerRef;
+    
 
-    viewContainerRef.clear();
+    this.adHost.viewContainerRef.clear();
 
-    viewContainerRef.createComponent(componentFactory);
+    this.adHost.viewContainerRef.createComponent(componentFactory);
     // component.instance.clear.subscribe(()=> this.clear())
     
   }
