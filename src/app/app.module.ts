@@ -13,7 +13,8 @@ import { PopUpModule } from './pop-up/pop-up.module';
 import { PopUpHostComponent } from './pop-up-host/pop-up-host.component';
 import { PopUpConfirmationComponent } from './pop-up/pop-up-confirmation/pop-up-confirmation.component';
 import { AdDirective } from './ad.directive';
-import { SkillIdService } from './services/skillId/skillId.service';
+import { PopUpDeleteComponent } from './pop-up/pop-up-delete/pop-up-delete.component';
+import { EditSkillService } from './services/editSkil/editSkill.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5QxkjS33vWL_910lHtZn72qfDHPatCIE",
@@ -42,12 +43,13 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   entryComponents: [ 
-    PopUpConfirmationComponent
+    PopUpConfirmationComponent,
+    PopUpDeleteComponent
   ],
   providers: [
     HttpService, 
     SkillsService,
-    SkillIdService
+    EditSkillService
   ],
   bootstrap: [AppComponent]
 })

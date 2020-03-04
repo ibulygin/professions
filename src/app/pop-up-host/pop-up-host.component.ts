@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, Type } from '@angular/core';
 import { AdItem } from '../ad-item';
 import { AdDirective } from '../ad.directive';
 import { ViewPopUpService } from '../services/viewPopUp/view-pop-up.service';
@@ -13,29 +13,24 @@ import { PopUpService } from '../services/popUP/pop-up.service';
 })
 export class PopUpHostComponent implements OnInit {
   popUps: AdItem;
+
   @ViewChild(AdDirective, {static: true}) adHost: AdDirective;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver,
-    private viewPopUpService: ViewPopUpService,
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
     private popUp: PopUpService
     ) { }
 
   ngOnInit() {
-    this.popUp.event.subscribe((popUpClass) => this.load(popUpClass) )
+    this.popUp.event.subscribe((popUpClass: Type<any>) => this.load(popUpClass) )
     this.popUp.closes.subscribe(() => this.adHost.viewContainerRef.clear())
-    // this.popUps = this.viewPopUpService.getPopUp();
-    // this.load();
   }
 
-  load(popUP) {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(popUP);
+  load(popUp: Type<any>) {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(popUp);
     
-
     this.adHost.viewContainerRef.clear();
-
-    this.adHost.viewContainerRef.createComponent(componentFactory);
-    // component.instance.clear.subscribe(()=> this.clear())
-    
+    this.adHost.viewContainerRef.createComponent(componentFactory);    
   }
 
   clear() {

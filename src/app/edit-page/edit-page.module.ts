@@ -6,7 +6,6 @@ import { SkillsTypeComponent } from './skills-type/skills-type.component';
 import { QueueGroupsComponent } from './queue-groups/queue-groups.component';
 import { TelephonyQueueComponent } from './telephony-queue/telephony-queue.component';
 import { EditPageModuleRoutingModule } from './edit-page-routing.module';
-import { EditSkillService } from '../services/editSkil/editSkill.service';
 import { FormsModule }   from '@angular/forms';
 import { SkillIdService } from '../services/skillId/skillId.service';
 
@@ -26,7 +25,7 @@ import { SkillIdService } from '../services/skillId/skillId.service';
     FormsModule
   ],
   providers: [
-    EditSkillService
+    SkillIdService
   ],
   exports: [
     EditPageComponent, 

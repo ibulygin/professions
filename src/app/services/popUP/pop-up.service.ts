@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -7,10 +7,11 @@ import { Subject } from 'rxjs';
 export class PopUpService {
   event = new Subject();
   closes = new Subject <void> ();
-  
-  constructor() { }
+  constructor( ) { 
+    
+  }
 
-  view(pupUpClass) {
+  view(pupUpClass: Type<any>) {
       this.event.next(pupUpClass);
   }
 
