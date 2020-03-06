@@ -14,7 +14,7 @@ import { PopUpHostComponent } from './pop-up-host/pop-up-host.component';
 import { PopUpConfirmationComponent } from './pop-up/pop-up-confirmation/pop-up-confirmation.component';
 import { AdDirective } from './ad.directive';
 import { PopUpDeleteComponent } from './pop-up/pop-up-delete/pop-up-delete.component';
-import { EditSkillService } from './services/editSkil/editSkill.service';
+import { EditSkillService } from './services/edit-skill/editSkill.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5QxkjS33vWL_910lHtZn72qfDHPatCIE",

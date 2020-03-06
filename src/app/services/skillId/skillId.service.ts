@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Location} from '@angular/common';
-import { EditSkillService } from '../editSkil/editSkill.service';
+import { EditSkillService } from '../edit-skill/editSkill.service';
 
 
 @Injectable()

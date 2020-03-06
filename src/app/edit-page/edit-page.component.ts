@@ -1,9 +1,11 @@
 import { Component, OnInit, Type } from '@angular/core';
-import { EditSkillService } from '../services/editSkil/editSkill.service';
+import { EditSkillService } from '../services/edit-skill/editSkill.service';
 import { SkillIdService } from '../services/skillId/skillId.service';
 import { Skill } from '../interfaces/skill';
-import { PopUpService } from '../services/popUP/pop-up.service';
+import { PopUpService } from '../services/pop-up/pop-up.service';
 import { PopUpConfirmationComponent } from '../pop-up/pop-up-confirmation/pop-up-confirmation.component';
+import { map, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-edit-page',
@@ -13,7 +15,9 @@ import { PopUpConfirmationComponent } from '../pop-up/pop-up-confirmation/pop-up
 })
 export class EditPageComponent implements OnInit {
   skill: Skill;
-  automateId: any;
+  automateId: string;
+  unsubscriber = new Subject();
+
 
   constructor(
     private editSkillService: EditSkillService,
@@ -23,16 +27,22 @@ export class EditPageComponent implements OnInit {
 
   ngOnInit() {
     this.editSkillService.getSkillById(this.skillIdService.get())
-        .subscribe(
-          (skill) => {
+        .pipe(
+            map((skill:any) => { 
               this.automateId = Object.keys(skill).join();
-              this.skill = skill[this.automateId];
-              }
-          );
+              return skill
+            })
+        )
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe(skill => this.skill = skill[this.automateId]);
   }
 
   getPopUp() {
-    this.popUp.view(PopUpConfirmationComponent);
+      this.popUp.view(PopUpConfirmationComponent);
   }
 
+  ngOnDestroy() {
+      this.unsubscriber.next(null);
+      this.unsubscriber.complete();
+  }
 }

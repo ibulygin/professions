@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
-import { PopUpService } from 'src/app/services/popUP/pop-up.service';
+import { Component, OnDestroy } from '@angular/core';
+import { PopUpService } from 'src/app/services/pop-up/pop-up.service';
 import { SkillsService } from 'src/app/services/skills/skills.service';
 import { SkillIdService } from 'src/app/services/skillId/skillId.service';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pop-up-confirmation',
@@ -12,7 +14,8 @@ import { Router } from '@angular/router';
     SkillIdService
   ]
 })
-export class PopUpConfirmationComponent{
+export class PopUpConfirmationComponent implements OnDestroy {
+  unsubscriber = new Subject();
 
   constructor(
       private popUp: PopUpService,
@@ -27,9 +30,15 @@ export class PopUpConfirmationComponent{
 
   delete() {
     let id = this.skillIdService.getAutomationId();
-    this.skillsService.removeSkill(id).subscribe(()=>{
-        this.router.navigateByUrl('');
-        this.popUp.close();
+    this.skillsService.removeSkill(id)
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe(()=>{
+            this.router.navigateByUrl('');
+            this.popUp.close();
     });
+  }
+  ngOnDestroy() {
+	  this.unsubscriber.next(null);
+	  this.unsubscriber.complete();
   }
 }

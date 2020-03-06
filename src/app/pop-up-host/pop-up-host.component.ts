@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ComponentFactoryResolver, Type } from '@angular/core';
 import { AdItem } from '../ad-item';
 import { AdDirective } from '../ad.directive';
-import { ViewPopUpService } from '../services/viewPopUp/view-pop-up.service';
-import { PopUpService } from '../services/popUP/pop-up.service';
+import { ViewPopUpService } from '../services/view-pop-up/view-pop-up.service';
+import { PopUpService } from '../services/pop-up/pop-up.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -13,6 +15,8 @@ import { PopUpService } from '../services/popUP/pop-up.service';
 })
 export class PopUpHostComponent implements OnInit {
   popUps: AdItem;
+  unsubscriber = new Subject();
+
 
   @ViewChild(AdDirective, {static: true}) adHost: AdDirective;
 
@@ -22,8 +26,12 @@ export class PopUpHostComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.popUp.event.subscribe((popUpClass: Type<any>) => this.load(popUpClass) )
-    this.popUp.closes.subscribe(() => this.adHost.viewContainerRef.clear())
+    this.popUp.event
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe((popUpClass: Type<any>) => this.load(popUpClass) )
+    this.popUp.closes
+        .pipe(takeUntil(this.unsubscriber))    
+        .subscribe(() => this.adHost.viewContainerRef.clear())
   }
 
   load(popUp: Type<any>) {

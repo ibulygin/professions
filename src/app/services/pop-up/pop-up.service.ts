@@ -6,13 +6,14 @@ import { Subject } from 'rxjs';
 })
 export class PopUpService {
   event = new Subject();
-  closes = new Subject <void> ();
+  closes = new Subject <void>();
+
   constructor( ) { 
     
   }
 
-  view(pupUpClass: Type<any>) {
-      this.event.next(pupUpClass);
+  view(popUpClass: Type<any>) {
+      this.event.next(popUpClass);
   }
 
   close() {

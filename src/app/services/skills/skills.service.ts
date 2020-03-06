@@ -11,8 +11,6 @@ export class SkillsService {
 
   constructor(private httpService: HttpService) { }
 
-  id: any;
-
   getSkills(): Observable<Skill> {
       return this.httpService.get(`${baseUrl}/skills.json`).pipe(
         map((skills) => {
@@ -26,7 +24,7 @@ export class SkillsService {
       return this.httpService.get(`${baseUrl}/skills.json?orderBy="id"&equalTo="${id}"&limitToFirst=1`)
   }
 
-  addSkill(skill): Observable<any>  {
+  addSkill(skill: Skill): Observable<any>  {
       return this.httpService.post(`${baseUrl}/skills.json`, skill);
   }
 
