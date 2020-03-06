@@ -15,6 +15,8 @@ import { PopUpConfirmationComponent } from './pop-up/pop-up-confirmation/pop-up-
 import { AdDirective } from './ad.directive';
 import { PopUpDeleteComponent } from './pop-up/pop-up-delete/pop-up-delete.component';
 import { EditSkillService } from './services/edit-skill/editSkill.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5QxkjS33vWL_910lHtZn72qfDHPatCIE",
@@ -40,6 +42,7 @@ export const firebaseConfig = {
     AppRoutingModule,
     HttpClientModule,
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   entryComponents: [ 
