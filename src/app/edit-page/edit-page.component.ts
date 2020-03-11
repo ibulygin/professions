@@ -6,6 +6,8 @@ import { PopUpService } from '../services/pop-up/pop-up.service';
 import { PopUpConfirmationComponent } from '../pop-up/pop-up-confirmation/pop-up-confirmation.component';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-edit-page',
@@ -17,14 +19,20 @@ export class EditPageComponent implements OnInit {
   skill: Skill;
   automateId: string;
   unsubscriber = new Subject();
-
+  editSkillForm: FormGroup;
 
   constructor(
     private editSkillService: EditSkillService,
     private skillIdService: SkillIdService,
-    private popUp: PopUpService
+    private popUp: PopUpService,
+    private fb: FormBuilder
     ) { }
-
+  
+  initForm(data) {
+      this.editSkillForm = this.fb.group({
+        skillName: [data.name]
+      })
+  }
   ngOnInit() {
     this.editSkillService.getSkillById(this.skillIdService.get())
         .pipe(
@@ -34,7 +42,11 @@ export class EditPageComponent implements OnInit {
             })
         )
         .pipe(takeUntil(this.unsubscriber))
-        .subscribe(skill => this.skill = skill[this.automateId]);
+        .subscribe(skill => {
+          this.skill = skill[this.automateId];
+          this.initForm(skill[this.automateId])
+        });
+    //this.initForm(this.skill)
   }
 
   getPopUp() {
