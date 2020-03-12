@@ -6,7 +6,7 @@ import { PopUpService } from '../services/pop-up/pop-up.service';
 import { PopUpConfirmationComponent } from '../pop-up/pop-up-confirmation/pop-up-confirmation.component';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 
 
 @Component({
@@ -56,5 +56,9 @@ export class EditPageComponent implements OnInit {
   ngOnDestroy() {
       this.unsubscriber.next(null);
       this.unsubscriber.complete();
+  }
+
+  getFormControl(controlName: string): AbstractControl {
+    return this.editSkillForm.get(controlName);
   }
 }

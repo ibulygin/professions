@@ -1,43 +1,15 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ui-input',
   templateUrl: './ui-input.component.html',
-  styleUrls: ['./ui-input.component.less'],
-  providers: [{ 
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => UiInputComponent),
-    multi: true
-   }]
+  styleUrls: ['./ui-input.component.less']
 })
-export class UiInputComponent implements ControlValueAccessor{
-  private _value;
+export class UiInputComponent {
+  @Input() controlName: AbstractControl;
 
-  get value() {
-    return this._value;
+  ngOnInit() {
+    console.log(this.controlName)
   }
-
-  @Input()
-  set value(val) {
-    this._value = val;
-    this.onChange(this._value);
-  }
-  onChange(_: any) {
-    this.registerOnTouched();
-  }
-
-  writeValue(value: any) {
-    this.value = value;
-   }
-   
-  
-   registerOnChange(fn) {
-    this.onChange = fn;
-   }
-  
-   registerOnTouched() {
-     
-   }
-  
 }

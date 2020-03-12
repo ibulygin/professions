@@ -2,14 +2,14 @@
 	  <section 
 	  		[formGroup]='editSkillForm'
             class='edit-skills' 
-            *ngIf='skill'>
+            *ngIf='skill && editSkillForm'>
         <h1 
             class='edit-skills__title' 
             >
             Редактирование скилла
         </h1>
 		<app-ui-input 
-			formControlName='skillName'
+			[controlName]='getFormControl("skillName")'
             class='edit-skills__input' 
             >
 		</app-ui-input>
