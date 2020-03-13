@@ -6,7 +6,7 @@ import { PopUpService } from '../services/pop-up/pop-up.service';
 import { PopUpConfirmationComponent } from '../pop-up/pop-up-confirmation/pop-up-confirmation.component';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { FormGroup, FormBuilder, AbstractControl, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, AbstractControl, FormControl, Validators, ValidationErrors } from '@angular/forms';
 
 
 @Component({
@@ -27,14 +27,29 @@ export class EditPageComponent implements OnInit {
     private popUp: PopUpService,
     private fb: FormBuilder
     ) { }
+
+    ngDoCheck(){
+      console.log(this.editSkillForm)
+    }
   
   initForm(data) {
       this.editSkillForm = this.fb.group({
-        skillName: [data.name],
+        skillName: [data.name,{
+          validators: [
+            Validators.maxLength(50), 
+            Validators.required,
+            Validators.minLength,
+            Validators.pattern('[A-Za-zа-яА-Я\s\-]*')
+          ], 
+          updateOn: 'blur'}],
         skillType: [data.type],
-        telephonyQueues: this.fb.control(data.telephonyQueues),
+        telephonyQueues: [data.telephonyQueues],
         queueGroup: [data.selectedQueueGroups]
-      });
+      },{
+        validators: [
+          this.telephonyQueuesValidator
+        ], 
+        updateOn: 'change'});
   }
   ngOnInit() {
     this.editSkillService.getSkillById(this.skillIdService.get())
@@ -49,7 +64,6 @@ export class EditPageComponent implements OnInit {
           this.skill = skill[this.automateId];
           this.initForm(skill[this.automateId]);
         });
-    //this.initForm(this.skill)
   }
 
   getPopUp() {
@@ -64,4 +78,27 @@ export class EditPageComponent implements OnInit {
   getFormControl(controlName: string): AbstractControl {
     return this.editSkillForm.get(controlName);
   }
+
+  telephonyQueuesValidator(control: FormGroup): ValidationErrors {
+    const skillType = control.get('skillType').value;
+    let telephonyQueues = control.get('telephonyQueues').value.length;
+
+    if(skillType === "ручной"){
+      if(telephonyQueues > 2){
+        return {
+          custom: "Для ручного типа не более 2 очередей"
+        }
+      }
+      return null;
+    } 
+    if(skillType === "телефония") {
+      if(telephonyQueues > 4){
+        return {
+          custom: "Для типа телефонии не более 4 очередей"
+        }
+      }
+      return null;
+    }
+  }
+  
 }

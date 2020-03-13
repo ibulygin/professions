@@ -14,7 +14,9 @@
                     alt=''
                     [ngClass]='getStyle()'>
         </div>
+        
     </div>
+    <app-validator-message-component [field]='form'></app-validator-message-component>
     <app-ui-button 
         class='telephony-queue__button'
         buttonStyle='button_cancel'

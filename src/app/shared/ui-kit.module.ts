@@ -4,6 +4,7 @@ import { UiInputComponent } from './ui-input/ui-input.component';
 import { UiSearchInputComponent } from './ui-search-input/ui-search-input.component';
 import { UiButtonComponent } from './ui-button/ui-button.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ValidatorMessageComponentComponent } from './validator-message-component/validator-message-component.component';
 
 
 
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     UiInputComponent, 
     UiSearchInputComponent, 
-    UiButtonComponent
+    UiButtonComponent, 
+    ValidatorMessageComponentComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     UiInputComponent, 
     UiSearchInputComponent, 
-    UiButtonComponent
+    UiButtonComponent,
+    ValidatorMessageComponentComponent
   ]
 })
 export class UiKitModule { }

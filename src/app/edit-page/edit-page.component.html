@@ -12,7 +12,9 @@
 			[controlName]='getFormControl("skillName")'
             class='edit-skills__input' 
             >
-		</app-ui-input>
+        </app-ui-input>
+        <app-validator-message-component [field]='getFormControl("skillName")'></app-validator-message-component>
+
         <app-skills-type 
             [controlName]='getFormControl("skillType")'
             class='edit-skills__type' 
@@ -21,6 +23,7 @@
         <app-telephony-queue 
             formControlName='telephonyQueues'>
         </app-telephony-queue>
+        <app-validator-message-component [field]='editSkillForm'></app-validator-message-component>
         <app-queue-groups 
             [controlName]='getFormControl("queueGroup")'
             class='edit-skills__queue-groups'>
