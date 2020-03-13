@@ -14,15 +14,16 @@
             >
 		</app-ui-input>
         <app-skills-type 
+            [controlName]='getFormControl("skillType")'
             class='edit-skills__type' 
-            [type]='skill.type'>
+            >
         </app-skills-type>
         <app-telephony-queue 
-            [queues]='skill.telephonyQueues'>
+            formControlName='telephonyQueues'>
         </app-telephony-queue>
         <app-queue-groups 
-            class='edit-skills__queue-groups' 
-            [value]='skill.selectedQueueGroups'>
+            [controlName]='getFormControl("queueGroup")'
+            class='edit-skills__queue-groups'>
         </app-queue-groups>
         <div class='edit-skills__save skills-save'>
           <app-ui-button 

@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-skills-type',
@@ -7,7 +8,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsTypeComponent {
-  @Input() type;
+  @Input() controlName: AbstractControl;
   
   constructor() { }
 }

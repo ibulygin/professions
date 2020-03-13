@@ -1,11 +1,10 @@
 <div class='edit-skills__telephony-queue telephony-queue'>
     <h2 class='telephony-queue__title'>Очереди телефонии</h2>
     <div class='telephony-queue__input-wrapper'> 
-        <app-ui-input
-            *ngFor='let queue of queues'
-            class='telephony-queue__input'
-            >
-        </app-ui-input>
+        <input
+            class='input telephony-queue__input'
+            [formControl]='form.controls[i]'
+            *ngFor='let control of form.controls; index as i'>
         <div 
             class='telephony-queue__delete'
             (click)='deleteTelephoneQueue()'>
@@ -22,3 +21,5 @@
         Добавить очередь телефонии
     </app-ui-button>
 </div>
+
+<!-- <input [formControl]='control'> -->

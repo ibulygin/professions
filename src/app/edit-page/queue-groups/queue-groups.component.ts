@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-queue-groups',
@@ -7,6 +8,6 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueueGroupsComponent {
-  @Input() value: any;
+  @Input() controlName: AbstractControl;
   constructor() { }
 }

@@ -1,32 +1,72 @@
 import {
   Component,
   Input,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  forwardRef,
+  OnInit
 } from '@angular/core';
+import { FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor, FormArray, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
+import { FormatWidth } from '@angular/common';
+
 
 @Component({
   selector: 'app-telephony-queue',
   templateUrl: './telephony-queue.component.html',
   styleUrls: ['./telephony-queue.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR, multi: true,
+      useExisting: forwardRef(()=> TelephonyQueueComponent)
+    }
+  ]
 })
-export class TelephonyQueueComponent{
+export class TelephonyQueueComponent implements OnInit, ControlValueAccessor{
+  onChange: () => void;
+  onToched: () => void;
+
+  constructor(
+    private fb: FormBuilder
+  ) {}
   isVisible: boolean = false;
-
-  @Input() queues: any[];
-
-  constructor() {}
-
-  addTelephoneQueue(): void {
-    this.queues.push('');
-    this.isVisible = false;
+  form:FormArray
+  ngOnInit() {
   }
 
-  deleteTelephoneQueue() {
-    if (this.queues.length > 1) {
-      this.queues.pop();
+  writeValue(arr: any): void {
+    console.log(arr);
+    this.form=new FormArray([]);
+    for(let value of arr){
+      this.form.push(new FormControl(value))
     }
-    if (this.queues.length === 1) {
+    console.log(this.form)
+  }
+
+  registerOnChange(fn: any) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any) {
+    this.onToched = fn;
+  }
+
+  addTelephoneQueue(): void {
+    this.form.push(new FormControl(''));
+    this.isVisible = false;
+  }
+   
+  // doInput() {
+  //   this.onChange(this.firstNameInput.value + " " + this.lastNameInput.value);
+  // }
+
+  // doBlur() {
+  //   this.onToched()
+  // }
+  deleteTelephoneQueue() {
+    if (this.form.controls.length > 1) {
+      this.form.removeAt(this.form.controls.length-1);
+    }
+    if (this.form.controls.length  === 1) {
       this.isVisible = true;
     }
   }
