@@ -10,6 +10,5 @@ export class UiInputComponent {
   @Input() controlName: AbstractControl;
 
   ngOnInit() {
-    console.log(this.controlName)
   }
 }

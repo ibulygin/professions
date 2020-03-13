@@ -34,12 +34,10 @@ export class TelephonyQueueComponent implements OnInit, ControlValueAccessor{
   }
 
   writeValue(arr: any): void {
-    console.log(arr);
     this.form=new FormArray([]);
     for(let value of arr){
       this.form.push(new FormControl(value))
     }
-    console.log(this.form)
   }
 
   registerOnChange(fn: any) {
@@ -53,15 +51,13 @@ export class TelephonyQueueComponent implements OnInit, ControlValueAccessor{
   addTelephoneQueue(): void {
     this.form.push(new FormControl(''));
     this.isVisible = false;
+    console.log(this.form)
   }
-   
-  // doInput() {
-  //   this.onChange(this.firstNameInput.value + " " + this.lastNameInput.value);
-  // }
 
-  // doBlur() {
-  //   this.onToched()
-  // }
+  doBlur() {
+    this.onToched();
+    console.log('blur')
+  }
   deleteTelephoneQueue() {
     if (this.form.controls.length > 1) {
       this.form.removeAt(this.form.controls.length-1);

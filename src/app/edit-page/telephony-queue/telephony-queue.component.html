@@ -4,7 +4,8 @@
         <input
             class='input telephony-queue__input'
             [formControl]='form.controls[i]'
-            *ngFor='let control of form.controls; index as i'>
+            *ngFor='let control of form.controls; index as i'
+            (blur)='doBlur()'>
         <div 
             class='telephony-queue__delete'
             (click)='deleteTelephoneQueue()'>
